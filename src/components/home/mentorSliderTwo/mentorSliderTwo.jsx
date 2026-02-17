@@ -14,7 +14,7 @@ export default function MentorSliderTwo() {
       try {
         setLoading(true);
         const response = await axios.get(
-          "http://localhost:8080/api/v1/users/instructors/public"
+          "https://shekhai-server.onrender.com/api/v1/users/instructors/public"
         );
 
         // Assuming the response has a data property with the instructors
