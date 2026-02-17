@@ -3,7 +3,7 @@ import { Hanken_Grotesk, Poppins } from "next/font/google";
 import "../globals.css";
 import { Toaster } from 'react-hot-toast';
 
-import NotifyBar from "@/components/shared/NotifyBar/NotifyBar";
+// import NotifyBar from "@/components/shared/NotifyBar/NotifyBar";
 import Navbar from "@/components/shared/navbar/navbar";
 import Footer from "@/components/shared/footer/footer";
 
@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.className} ${grotesk.variable} antialiased after:absolute after:inset-0 after:-z-[1] after:bg-[url('/hero-mesh.png')] after:opacity-75 after:content-['']`}
       >
-        <NotifyBar />
+        {/* <NotifyBar /> */}
         <Navbar />
         {children}
         <Footer />

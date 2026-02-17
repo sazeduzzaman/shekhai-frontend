@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedInput from "@/components/shared/AnimatedInput/AnimatedInput";
+// import AnimatedInput from "@/components/shared/AnimatedInput/AnimatedInput";
 import { useState } from "react";
 // import AnimatedInput from "../../shared/AnimatedInput/AnimatedInput";
 
@@ -48,12 +48,12 @@ export default function Hero({ data }) {
             {subtitle}
           </p>
 
-          <AnimatedInput
+          {/* <AnimatedInput
             state={query}
             setState={setQuery}
             onSubmit={setQuery}
             sequence={sequenceItems}
-          />
+          /> */}
         </div>
       </div>
     </section>

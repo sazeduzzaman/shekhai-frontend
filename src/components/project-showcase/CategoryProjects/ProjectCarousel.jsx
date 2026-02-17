@@ -1,4 +1,4 @@
-import Stars from "@/components/shared/Stars/Stars";
+// import Stars from "@/components/shared/Stars/Stars";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -56,7 +56,7 @@ export default function ProjectCarousel() {
                         4.9
                       </span>
                       {/* <div className="flex items-center gap-0.5">{renderStars(4.9)}</div> */}
-                      <Stars count={2} />
+                      {/* <Stars count={2} /> */}
                     </div>
                   </div>
 

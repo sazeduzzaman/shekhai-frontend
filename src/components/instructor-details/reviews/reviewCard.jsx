@@ -1,4 +1,4 @@
-import Stars from "@/components/shared/Stars/Stars";
+// import Stars from "@/components/shared/Stars/Stars";
 import { BsThreeDots } from "react-icons/bs";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
@@ -7,7 +7,7 @@ export default function ReviewCard() {
     <div className="flex h-full flex-col justify-between rounded-2xl border p-5">
       <div className="flex flex-col gap-x-3.5">
         <div className="flex items-center justify-between text-gray">
-          <Stars count={3.8} />
+          {/* <Stars count={3.8} /> */}
           <BsThreeDots className="text-2xl" />
         </div>
 

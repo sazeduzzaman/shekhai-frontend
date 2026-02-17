@@ -1,5 +1,5 @@
 
-import Stars from "../../shared/Stars/Stars";
+// import Stars from "../../shared/Stars/Stars";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -55,7 +55,7 @@ export default function CarouselCard({ course, index }) {
         </p>
 
         <div className="flex items-center gap-2 mt-1">
-          <Stars count={3} size="sm" />
+          {/* <Stars count={3} size="sm" /> */}
           <span className="text-xs text-gray-500">{formattedPrice}</span>
         </div>
 
