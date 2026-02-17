@@ -3,7 +3,6 @@ import { Hanken_Grotesk, Poppins } from "next/font/google";
 import "../globals.css";
 import { Toaster } from 'react-hot-toast';
 
-// import NotifyBar from "@/components/shared/NotifyBar/NotifyBar";
 import Navbar from "@/components/shared/navbar/navbar";
 import Footer from "@/components/shared/footer/footer";
 

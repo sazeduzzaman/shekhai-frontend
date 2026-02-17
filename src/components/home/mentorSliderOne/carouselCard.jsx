@@ -1,5 +1,4 @@
 
-// import Stars from "../../shared/Stars/Stars";
 import Image from "next/image";
 import Link from "next/link";
 
