@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 // import StarRating from "@/components/Shared/StarRating/StarRating";
+import StarRating from "@/components/shared/StarRating/StarRating";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -21,7 +22,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
-import StarRating from "@/components/shared/starRating/StarRating";
 
 export default function CourseDetails() {
   const params = useParams();

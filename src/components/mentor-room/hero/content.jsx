@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedInput from "@/components/shared/animatedInput/animatedInput";
+import AnimatedInput from "@/components/shared/AnimatedInput/AnimatedInput";
 import { useState } from "react";
 
 export default function Content({ mentorData }) {
