@@ -9,7 +9,7 @@ export default function Educator({ instructor }) {
   const expertise = instructor.expertise || "Instructor";
 
   return (
-    <div className="relative flex h-[11.75rem] w-96 items-center justify-between overflow-hidden rounded-lg bg-text-light">
+    <div className="relative flex w-96 items-center justify-between overflow-hidden rounded-lg bg-text-light">
       <div className="px-5">
         <h3 className="text-lg text-title-one">{instructor.name}</h3>
         <p className="text-gray">{expertise}</p>

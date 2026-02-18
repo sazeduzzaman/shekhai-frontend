@@ -11,7 +11,7 @@ export default function Educators({ instructors }) {
   }
 
   return (
-    <section className="col-span-8 hidden flex-wrap gap-6 md:flex">
+    <section className="col-span-8 hidden flex-wrap gap-6 md:flex h-[400px]">
       {instructors.map((instructor) => (
         <Educator key={instructor._id} instructor={instructor} />
       ))}

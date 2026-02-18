@@ -127,7 +127,7 @@ export default function EducatorsSection() {
 
       <Educators instructors={instructors} />
 
-      <BookingForm />
+      <BookingForm instructors={instructors} />
     </section>
   );
 }

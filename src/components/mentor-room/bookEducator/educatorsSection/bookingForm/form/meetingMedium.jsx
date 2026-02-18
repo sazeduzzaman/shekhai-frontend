@@ -1,29 +1,54 @@
+"use client";
+
 import { BsChatRightText } from "react-icons/bs";
 import { IoVideocamSharp } from "react-icons/io5";
 import { MdHeadsetMic } from "react-icons/md";
+import { useState } from "react";
 
-export default function MeetingMedium() {
+export default function MeetingMedium({ onMethodChange, selectedMethod }) {
+  const methods = [
+    { id: "video", label: "Video Call", icon: IoVideocamSharp },
+    { id: "chat", label: "Chat", icon: BsChatRightText },
+    { id: "voice", label: "Voice Call", icon: MdHeadsetMic },
+  ];
+
   return (
-    <section className="flex items-center justify-between px-7">
-      {/* Video Call */}
-      <div className="flex w-fit flex-col items-center gap-x-3 gap-y-1 font-medium text-base">
-        <span className="inline-block w-fit rounded-full rounded-tr-[3rem] border-3 border-base p-2">
-          <IoVideocamSharp className="text-base" />
-        </span>
-        Video Call
-      </div>
-
-      {/* Text Message */}
-      <div className="mt-0.5 flex flex-col items-center gap-y-2">
-        <BsChatRightText className="text-3xl" />
-        <span className="font-medium">Chat</span>
-      </div>
-
-      {/* Text Message */}
-      <div className="flex flex-col items-center gap-y-2">
-        <MdHeadsetMic className="text-3xl" />
-        <span className="font-medium">Voice Call</span>
+    <section>
+      <Label className="mb-3 block font-semibold text-[#1E293B]">
+        Meeting Medium
+      </Label>
+      <div className="flex items-center justify-between px-7">
+        {methods.map((method) => {
+          const Icon = method.icon;
+          const isSelected = selectedMethod === method.id;
+          
+          return (
+            <div
+              key={method.id}
+              onClick={() => onMethodChange(method.id)}
+              className={`flex cursor-pointer flex-col items-center gap-y-2 transition-all ${
+                isSelected ? "scale-110" : "opacity-70 hover:opacity-100"
+              }`}
+            >
+              <span
+                className={`inline-block rounded-full p-3 ${
+                  isSelected
+                    ? "border-3 border-base bg-base/10"
+                    : "border-3 border-transparent"
+                }`}
+              >
+                <Icon className={`text-2xl ${isSelected ? "text-base" : "text-gray-600"}`} />
+              </span>
+              <span className={`font-medium ${isSelected ? "text-base" : "text-gray-600"}`}>
+                {method.label}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
 }
+
+// Add this import at the top
+import { Label } from "@/components/ui/label";
