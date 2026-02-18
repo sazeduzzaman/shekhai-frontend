@@ -33,9 +33,9 @@ export default function Navbar() {
           <IoSearch />
         </Link> */}
 
-        <Link href={"/profile/user/dashboard"}>
+        {/* <Link href={"/profile/user/dashboard"}>
           <FaRegUserCircle className="text-[1.8rem] text-base" />
-        </Link>
+        </Link> */}
 
         <Link href="/join-studybit">
           <Button className="flex flex-col py-2 md:h-[3.75rem] md:px-6">

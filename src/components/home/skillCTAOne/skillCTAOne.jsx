@@ -23,7 +23,7 @@ export default function SkillCTAOne({ data }) {
   const imageSrc = getOriginalImagePath(data?.image);
 
   return (
-    <section className="mt-16 flex items-center justify-center bg-[#ECF4FA] py-5 md:mt-[6.25rem] md:justify-between md:py-0">
+    <section className="flex items-center justify-center bg-[#ECF4FA] py-5 md:justify-between md:py-0">
       <Image
         src={imageSrc}
         alt="skill image"
