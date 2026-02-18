@@ -38,7 +38,7 @@ export default function Content({ mentorData }) {
       </div>
 
       <Button className="mt-6 rounded">
-        <Link href={`/${data?.instructor_link}`}>Start Learning</Link>
+        <Link href={`${data?.instructor_link}`}>Start Learning</Link>
       </Button>
     </section>
   );
