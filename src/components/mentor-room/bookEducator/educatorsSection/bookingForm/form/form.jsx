@@ -119,24 +119,24 @@ export default function Form({ instructors }) {
   };
 
   // Handle form submission
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validate form
     if (!data.instructor) {
-      toast.error("Please select an instructor");
+      alert("Please select an instructor");
       return;
     }
     if (!data.date) {
-      toast.error("Please select a date");
+      alert("Please select a date");
       return;
     }
     if (!data.fromTime || !data.toTime) {
-      toast.error("Please select time range");
+      alert("Please select time range");
       return;
     }
 
+    toast.success("Session booked successfully!");
     // Log the complete form data
     console.log("========== FORM SUBMISSION DATA ==========");
     console.log("Booking Details:");
@@ -148,25 +148,6 @@ export default function Form({ instructors }) {
     console.log("\nComplete Data Object:");
     console.log(JSON.stringify(data, null, 2));
     console.log("==========================================");
-
-    // Show success toast
-    toast.success("Session booked successfully!", {
-      duration: 5000,
-      position: "top-center",
-      icon: "🎉",
-      style: {
-        background: "#10b981",
-        color: "#fff",
-        fontWeight: "bold",
-      },
-    });
-
-    // Here you would typically send this data to your API
-    // await fetch('/api/bookings', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data)
-    // });
   };
 
   const methods = [
