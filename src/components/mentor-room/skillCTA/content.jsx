@@ -11,7 +11,7 @@ export default function Content({ mentorData }) {
       </h1>
       <p className="mt-4 font-light text-gray md:text-xl">{cta?.sub_title}</p>
 
-      <Link href={`/${cta?.btn_link}`}>
+      <Link href={`${cta?.btn_link}`}>
         <Button className="mt-4">Start Learning</Button>
       </Link>
     </div>

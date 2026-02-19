@@ -11,7 +11,7 @@ export default function Content({ sectionThree }) {
         {sectionThree?.description_title}
       </p>
 
-      <Link href={`/${sectionThree?.btn_link}`}>
+      <Link href={`${sectionThree?.btn_link}`}>
         <Button className="mt-8">Book Now</Button>
       </Link>
     </div>
