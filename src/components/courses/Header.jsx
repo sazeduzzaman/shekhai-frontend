@@ -5,7 +5,9 @@ import { Input } from "../ui/input";
 export default function Header({
   searchQuery,
   onSearchChange,
+  onClearSearch,
   isSearching = false,
+  totalResults = 0,
 }) {
   return (
     <div className="flex flex-col items-center justify-between px-3 py-6 md:flex-row md:p-0">
@@ -25,8 +27,9 @@ export default function Header({
           type="text"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Select Category & Then Search Courses..."
+          placeholder="Search courses across all categories..."
           className="h-[50px] rounded-md border border-gray-500 py-2 pr-12 pl-4 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none md:w-[510px] md:text-lg"
+          autoComplete="off"
         />
         <div className="absolute top-1/2 right-5 -translate-y-1/2 transform">
           {isSearching ? (
@@ -36,13 +39,20 @@ export default function Header({
           )}
         </div>
         {searchQuery && (
-          <button
-            type="button"
-            onClick={() => onSearchChange("")}
-            className="absolute top-1/2 right-12 -translate-y-1/2 transform text-gray-400 hover:text-gray-600"
-          >
-            ✕
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={onClearSearch}
+              className="absolute top-1/2 right-12 -translate-y-1/2 transform text-gray-400 hover:text-gray-600"
+            >
+              ✕
+            </button>
+            {!isSearching && (
+              <span className="absolute -bottom-6 left-0 text-sm text-gray-500">
+                {totalResults} result{totalResults !== 1 ? 's' : ''} found
+              </span>
+            )}
+          </>
         )}
       </div>
     </div>
