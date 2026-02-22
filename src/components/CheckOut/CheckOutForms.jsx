@@ -17,7 +17,7 @@ const BKASH_CONFIG = {
 
 // Test credentials for bKash sandbox
 const BKASH_TEST_CREDENTIALS = {
-  PHONE: "01770618575",
+  PHONE: "01929918378",
   OTP: "123456",
   MPIN: "12121"
 };
@@ -46,9 +46,9 @@ const CheckOutForms = () => {
   // Initialize with test data
   useEffect(() => {
     setFormData({
-      fullname: "Test User",
-      email: "test@example.com",
-      phone: "01770618575",
+      fullname: "Unique User",
+      email: "unique@user.com",
+      phone: "01929918378",
     });
   }, []);
 
@@ -1045,10 +1045,14 @@ const CheckOutForms = () => {
                           <span className="text-gray-700">Role:</span>
                           <span className="font-medium">Student</span>
                         </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-700">URL:</span>
+                          <span className="font-medium text-blue-500 underline"><a href="https://shekhai-dashboard.vercel.app/">https://shekhai-dashboard.vercel.app/</a></span>
+                        </div>
                       </div>
                     </div>
 
-                    <Button
+                    {/* <Button
                       onClick={() => {
                         const enrollments = JSON.parse(localStorage.getItem('courseEnrollments') || '[]');
                         const lastEnrollment = enrollments[enrollments.length - 1];
@@ -1060,7 +1064,7 @@ const CheckOutForms = () => {
                       className="w-full py-6 text-lg"
                     >
                       Download Receipt
-                    </Button>
+                    </Button> */}
                     <Button
                       variant="ghost"
                       onClick={() => router.push("/courses")}
