@@ -76,7 +76,7 @@ export default async function Home() {
 
   return (
     <>
-      <Hero data={data.hero || {}} />
+      <Hero/>
       <MasonrySection data={data.featured_categories || {}} />
       <OnDemandSkillsPromo data={data.start_learning || {}} />
       <MentorSliderOne data={data.cooking_section || {}} />
