@@ -68,7 +68,7 @@ const LiveSessionCheckout = () => {
                 setLoading(true);
                 // Fetch from your actual API
                 const response = await axios.get(
-                    `http://localhost:8080/api/v1/live-sessions/${sessionId}`
+                    `https://shekhai-server.onrender.com/api/v1/live-sessions/${sessionId}`
                 );
 
                 if (response.data.success) {
@@ -282,7 +282,7 @@ const LiveSessionCheckout = () => {
 
             // Create user account
             const response = await axios.post(
-                "http://localhost:8080/api/v1/auth/signup",
+                "https://shekhai-server.onrender.com/api/v1/auth/signup",
                 userPayload,
                 {
                     headers: {
@@ -362,7 +362,7 @@ const LiveSessionCheckout = () => {
 
             // Step 2: Send enrollment to backend
             const enrollmentResponse = await axios.post(
-                `http://localhost:8080/api/v1/live-sessions/${sessionId}/enroll`,
+                `https://shekhai-server.onrender.com/api/v1/live-sessions/${sessionId}/enroll`,
                 enrollmentPayload,
                 {
                     headers: {
