@@ -27,8 +27,8 @@ const footerLinks = [
   {
     title: "important links",
     links: [
-      { title: "Login", href: "/login" },
-      { title: "register", href: "/register" },
+      // { title: "Login", href: "/login" },
+      // { title: "register", href: "/register" },
       { title: "Contact Us", href: "/contact-us" },
     ],
   },
