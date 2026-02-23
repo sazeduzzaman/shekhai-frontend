@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import {
     Calendar, Clock, Users, Zap, Video, ArrowLeft, Globe, Award,
     BookOpen, CheckCircle, Share2, Copy, Check, AlertCircle,
@@ -23,6 +24,7 @@ const LiveSessionDetails = () => {
     const router = useRouter();
     const [session, setSession] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isNavigating, setIsNavigating] = useState(false);
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -38,6 +40,17 @@ const LiveSessionDetails = () => {
         };
         fetchDetails();
     }, [params.id]);
+
+    // In LiveSessionDetails.js, update the handleReserveClick function:
+    const handleReserveClick = () => {
+        if (session.availableSlots <= 0) {
+            toast.error("Sorry, this session is fully booked!");
+            return;
+        }
+
+        setIsNavigating(true);
+        router.push(`/live-session-checkout/${session._id}`); // Updated path
+    };
 
     if (loading) return <LoadingSkeleton />;
     if (!session) return <ErrorState router={router} />;
@@ -187,13 +200,28 @@ const LiveSessionDetails = () => {
                                     </div>
 
                                     {isFree ? (
-                                        <Button className="w-full h-16 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-lg font-bold transition-all shadow-xl shadow-emerald-100"
-                                            onClick={() => window.open(session.liveDetails?.joinUrl, '_blank')}>
+                                        <Button
+                                            className="w-full h-16 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-lg font-bold transition-all shadow-xl shadow-emerald-100"
+                                            onClick={() => window.open(session.liveDetails?.joinUrl, '_blank')}
+                                        >
                                             Join Live Workshop
                                         </Button>
                                     ) : (
-                                        <Button className="w-full h-16 rounded-2xl bg-blue-600 hover:bg-blue-700 text-lg font-bold transition-all shadow-xl shadow-blue-100">
-                                            Reserve My Seat
+                                        <Button
+                                            className="w-full h-16 rounded-2xl bg-blue-600 hover:bg-blue-700 text-lg font-bold transition-all shadow-xl shadow-blue-100 disabled:opacity-50"
+                                            onClick={handleReserveClick}
+                                            disabled={isNavigating || session.availableSlots <= 0}
+                                        >
+                                            {isNavigating ? (
+                                                <div className="flex items-center gap-2">
+                                                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                                                    Redirecting...
+                                                </div>
+                                            ) : session.availableSlots <= 0 ? (
+                                                "Fully Booked"
+                                            ) : (
+                                                "Reserve My Seat"
+                                            )}
                                         </Button>
                                     )}
                                 </CardContent>
@@ -244,11 +272,15 @@ const SidebarRow = ({ icon, label, value }) => (
 );
 
 const ErrorState = ({ router }) => (
-    <div className="min-h-screen flex items-center justify-center"><Button onClick={() => router.back()}>Session not found</Button></div>
+    <div className="min-h-screen flex items-center justify-center">
+        <Button onClick={() => router.back()}>Session not found</Button>
+    </div>
 );
 
 const LoadingSkeleton = () => (
-    <div className="p-8 space-y-8 animate-pulse"><Skeleton className="h-[40vh] w-full rounded-[3rem]" /></div>
+    <div className="p-8 space-y-8 animate-pulse">
+        <Skeleton className="h-[40vh] w-full rounded-[3rem]" />
+    </div>
 );
 
 export default LiveSessionDetails;
